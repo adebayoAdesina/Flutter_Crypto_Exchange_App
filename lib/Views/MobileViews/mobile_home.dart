@@ -15,6 +15,10 @@ String data = '27,812';
 String btcdata = '13,892.12';
 String btcsubdata = '0.028195';
 String btcpercentage = '4.62';
+
+String ethdata = '11,894.12';
+String ethsubdata = '2.2';
+String ethpercentage = '1.56';
 bool _isWallets = true;
 
 class _MobileHomeState extends State<MobileHome> {
@@ -36,41 +40,15 @@ class _MobileHomeState extends State<MobileHome> {
                     padding: const EdgeInsets.only(
                       top: 70
                     ),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          flex: 6,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: const [
-                              Expanded(
-                                child: Icon(
-                                  Icons.attach_money_rounded,
-                                  color: whiteColor,
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          flex: 6,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                data,
-                                style: const TextStyle(
-                                  color: whiteColor,
-                                  fontSize: 38,
-                                  fontWeight: FontWeight.w700
-                                
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
+                    child: Text(
+                      data,
+                      style: const TextStyle(
+                        color: whiteColor,
+                        fontSize: 38,
+                        fontWeight: FontWeight.w700
+                      
+                      ),
+                      textAlign: TextAlign.center,
                     ),
                   ),
                   const SizedBox(
@@ -320,15 +298,63 @@ class _MobileHomeState extends State<MobileHome> {
                 subtitle: Text(
                   btcsubdata
                 ),
-                trailing: Column(
-                  children: [
-                    Icon(Icons.keyboard_arrow_down_rounded,
-                    size: 6,
+                trailing: Padding(
+                  padding: const EdgeInsets.only(
+                    top: 8
+                  ),
+                  child: Column(
+                    children: [
+                      Text(
+                        '$btcpercentage %'
+                      ),
+                      const Icon(
+                        Icons.keyboard_arrow_down_rounded,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                top: 2
+              ),
+              child: ListTile(
+                contentPadding: const EdgeInsets.symmetric(
+                  vertical: 20,
+                  horizontal: 10
+                ),
+                tileColor: whiteColor,
+                leading: const CircleAvatar(
+                  radius: 26,
+                  backgroundColor: ethColor,
+                  child: Text(
+                    'ETH',
+                    style: TextStyle(
+                      color: whiteColor
                     ),
-                    Text(
-                      '$btcpercentage %'
-                    )
-                  ],
+                  ),
+                ),
+                title: Text(
+                  ethdata
+                ),
+                subtitle: Text(
+                  ethsubdata
+                ),
+                trailing: Padding(
+                  padding: const EdgeInsets.only(
+                    top: 8
+                  ),
+                  child: Column(
+                    children: [
+                      Text(
+                        '$ethpercentage %'
+                      ),
+                      const Icon(
+                        Icons.keyboard_arrow_down_rounded,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             )
