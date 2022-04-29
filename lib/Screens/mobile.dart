@@ -1,4 +1,5 @@
 import 'package:crypto_exchange/Colors/colors.dart';
+import 'package:crypto_exchange/Views/MobileViews/mobile_add_card.dart';
 import 'package:crypto_exchange/Views/MobileViews/mobile_history.dart';
 import 'package:crypto_exchange/Views/MobileViews/mobile_home.dart';
 import 'package:crypto_exchange/Views/MobileViews/mobile_profile.dart';
@@ -16,7 +17,8 @@ class _MobileState extends State<Mobile> {
 List<Widget> pageView = const [
   MobileHome(),
   MobileHistory(),
-  MobileProfile()
+  MobileAddCard(),
+  // MobileProfile()
 ];
 
   int currentState = 0;
