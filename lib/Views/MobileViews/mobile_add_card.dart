@@ -23,7 +23,7 @@ class _MobileAddCardState extends State<MobileAddCard> {
           Positioned(
             child: Container(
               color: mainColor,
-              height: size.height * 0.52,
+              height: size.height * 0.49,
               child: Padding(
                 padding: const EdgeInsets.only(
                   top: 40,
@@ -45,7 +45,7 @@ class _MobileAddCardState extends State<MobileAddCard> {
                           ),
                         ),
                         SizedBox(
-                          width: size.width * 0.78,
+                          width: size.width * 0.75,
                           child: const Text(
                             'Add Card',
                             style: TextStyle(
@@ -67,7 +67,7 @@ class _MobileAddCardState extends State<MobileAddCard> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               const SizedBox(
-                                height: 15,
+                                height: 12,
                               ),
                               Row(
                                 children: [
@@ -117,7 +117,7 @@ class _MobileAddCardState extends State<MobileAddCard> {
                             ],
                           ),
                           const SizedBox(
-                            height: 30,
+                            height: 23,
                           ),
                           Row(
                             children: [
@@ -195,32 +195,130 @@ class _MobileAddCardState extends State<MobileAddCard> {
             ),
           ),
           Positioned(
-            top: size.height*0.6,
+            top: size.height*0.55,
             left: size.width*0.01,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Keyboard(1,'', size.height, size.width),
+                      padding: const EdgeInsets.only(
+                        left: 8,
+                        right: 0,
+                        top: 3
+                      ),
+                      child: keyboard(1,'', size.width),
                     ),
-                    const SizedBox(
-                      width: 10,
+                    
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 8,
+                        right: 8,
+                        top: 3
+                      ),
+                      child: keyboard(2,'ABC', size.width),
+                    ),
+                    
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 0,
+                        right: 8,
+                        top: 3
+                      ),
+                      child: keyboard(3,'DEF', size.width),
+                    )
+                  ],
+                ),
+                Row(
+                  children: [
+                    
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 8,
+                        right: 0,
+                        top: 8
+                      ),
+                      child: keyboard(4,'GHI', size.width),
+                    ),
+                    
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 8,
+                        right: 8,
+                        top: 8
+                      ),
+                      child: keyboard(5,'JKL', size.width),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Keyboard(2,'ABC', size.height, size.width),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
+                      padding: const EdgeInsets.only(
+                        left: 0,
+                        right: 8,
+                        top: 8
+                      ),
+                      child: keyboard(6,'PQRS', size.width),
+                    )
+                  ],
+                ),
+                Row(
+                  children: [
+                    
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Keyboard(3,'DEF', size.height, size.width),
+                      padding: const EdgeInsets.only(
+                        left: 8,
+                        right: 0,
+                        top: 8
+                      ),
+                      child: keyboard(7,'GHI', size.width),
+                    ),
+                    
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 8,
+                        right: 8,
+                        top: 8
+                      ),
+                      child: keyboard(8,'TUV', size.width),
+                    ),
+                    
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 0,
+                        right: 8,
+                        top: 8
+                      ),
+                      child: keyboard(9,'WXYZ', size.width),
+                    )
+                  ],
+                ),
+                Row(
+                  children: [
+                    
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 8,
+                        right: 0,
+                        top: 8
+                      ),
+                      child: keyboard('','', size.width),
+                    ),
+                    
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 8,
+                        right: 8,
+                        top: 8
+                      ),
+                      child: keyboard(0,'', size.width),
+                    ),
+                    
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 0,
+                        right: 8,
+                        top: 8
+                      ),
+                      child: keyboard('Icon','', size.width),
                     )
                   ],
                 )
@@ -228,14 +326,39 @@ class _MobileAddCardState extends State<MobileAddCard> {
             ),
           ),
           Positioned(
-            top: size.height*0.48,
+            top: size.height*0.445,
             left: size.width* 0.05,
             child: Container(
               width: size.width * 0.9,
-              height: size.height * 0.09,
+              height: size.height * 0.085,
               decoration: BoxDecoration(
                 color: whiteColor,
                 borderRadius: BorderRadius.circular(6)
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 8,
+                  horizontal: 10,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(
+                      Icons.qr_code_scanner,
+                      color: greyColor,
+                    ),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Text(
+                      'Use camera to scan card info',
+                      style: TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w400
+                      ),
+                    )
+                  ]
+                ),
               ),
             )
           )

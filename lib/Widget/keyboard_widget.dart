@@ -1,24 +1,47 @@
 import 'package:flutter/material.dart';
 
 import '../Colors/colors.dart';
-  Widget Keyboard(int values, String text, var heights, var widths) {
+  Widget keyboard(var values, String text, var widths) {
     
-    return Container(
-      color: whiteColor,
-      height: heights*0.075,
-      width: widths*0.25,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
+    return SizedBox(
+      child: values != '' ? Container(
+        height: 50,
+        width: widths*0.30,
+        decoration: const BoxDecoration(
+          color: whiteColor,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(5),
+            topRight: Radius.circular(5),
+            bottomLeft: Radius.circular(8),
+            bottomRight: Radius.circular(8),
+
+          )
+        ),
         child: Column(
           children: [
-            Text(
-              values.toString()
+            Padding(
+              padding: const EdgeInsets.only(
+                top: 6
+              ),
+              child: values != 'Icon' ? Text(
+                values.toString(),
+                style: const TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 22,
+                ),
+              ): const Icon(Icons.disabled_by_default_outlined)
             ),
             Text(
-              text
+              text,
+              style: const TextStyle(
+                fontWeight: FontWeight.w400
+              ),
             )
           ],
-        ),
-      ),
+        )
+      ): SizedBox(
+        height: 50,
+        width: widths*0.30,
+      )
     );
   }
