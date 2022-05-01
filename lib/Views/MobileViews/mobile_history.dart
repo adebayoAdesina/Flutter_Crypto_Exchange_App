@@ -188,7 +188,7 @@ class _MobileHistoryState extends State<MobileHistory> {
                             child: IconButton(
                               color: whiteColor,
                               onPressed: (){}, 
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.search,
                               )
                             ),

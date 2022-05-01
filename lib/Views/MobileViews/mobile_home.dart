@@ -1,5 +1,6 @@
 
 
+import 'package:crypto_exchange/Views/MobileViews/mobile_add_card.dart';
 import 'package:flutter/material.dart';
 
 import '../../Colors/colors.dart';
@@ -176,7 +177,10 @@ class _MobileHomeState extends State<MobileHome> {
 
                       InkWell(
                         onTap: (() {
-                          
+                          Navigator.push(
+                            context, MaterialPageRoute(
+                              builder: (_) => const MobileAddCard())
+                          );
                         }),
                         child: Column(
                           children: [

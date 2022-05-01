@@ -1,5 +1,9 @@
+import 'dart:async';
+
+import 'package:crypto_exchange/Views/MobileViews/mobile_connected_cards.dart';
 import 'package:crypto_exchange/Widget/keyboard_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:rounded_loading_button/rounded_loading_button.dart';
 
 import '../../Colors/colors.dart';
 import '../../Screens/mobile.dart';
@@ -12,6 +16,29 @@ class MobileAddCard extends StatefulWidget {
 }
 
 class _MobileAddCardState extends State<MobileAddCard> {
+  final RoundedLoadingButtonController _btncontroller = RoundedLoadingButtonController();
+
+  void _connectCard() {
+    Timer(
+      const Duration(seconds: 3), 
+      () {
+        _btncontroller.success();
+        Timer(const Duration(seconds: 1), () async
+        {
+          await Navigator.push(
+            context, MaterialPageRoute(
+              builder: (_) =>
+                const MobileConnectedCards()
+            )
+          );
+          _btncontroller.reset();
+        });
+      }
+    );
+  }
+
+  // final int _cardNumber = 3;
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -85,12 +112,15 @@ class _MobileAddCardState extends State<MobileAddCard> {
                               ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: const [
+                                children: [
                                   Expanded(
                                     flex: 9,
                                     child: TextField(
-                                      keyboardType: TextInputType.number,
-                                      decoration: InputDecoration(
+                                      onTap: (() {
+                                        
+                                      }),
+                                      keyboardType: TextInputType.none,
+                                      decoration: const InputDecoration(
                                         hoverColor: greyColor,
                                         fillColor: whiteColor,
                                         filled: true
@@ -98,19 +128,19 @@ class _MobileAddCardState extends State<MobileAddCard> {
                                       
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 15,
                                   ),
                                   Expanded(
                                     flex: 2,
-                                    child: TextField(
-                                      keyboardType: TextInputType.number,
-                                        decoration: InputDecoration(
-                                          hoverColor: greyColor,
-                                          fillColor: whiteColor,
-                                          filled: true
-                                        ),
-                                    ),
+                                    child: Container(
+                                      color: whiteColor,
+                                      height: 48,
+                                      child: const Icon(
+                                        Icons.calendar_view_day,
+                                        color: Colors.red,
+                                      )
+                                    )
                                   )
                                 ],
                               ),
@@ -140,7 +170,7 @@ class _MobileAddCardState extends State<MobileAddCard> {
                                       height: 10,
                                     ),
                                     const TextField(
-                                      keyboardType: TextInputType.number,
+                                      keyboardType: TextInputType.none,
                                       decoration: InputDecoration(
                                         hoverColor: greyColor,
                                         fillColor: whiteColor,
@@ -173,7 +203,7 @@ class _MobileAddCardState extends State<MobileAddCard> {
                                       height: 10,
                                     ),
                                     const TextField(
-                                      keyboardType: TextInputType.number,
+                                      keyboardType: TextInputType.none,
                                       decoration: InputDecoration(
                                         hoverColor: greyColor,
                                         fillColor: whiteColor,
@@ -333,11 +363,18 @@ class _MobileAddCardState extends State<MobileAddCard> {
               height: size.height * 0.085,
               decoration: BoxDecoration(
                 color: whiteColor,
-                borderRadius: BorderRadius.circular(6)
+                borderRadius: BorderRadius.circular(6),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.3),
+                    blurRadius: 7,
+                    // offset: Offset(3,7)
+                  )
+                ]
               ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(
-                  vertical: 8,
+                  vertical: 6,
                   horizontal: 10,
                 ),
                 child: Row(
@@ -353,7 +390,7 @@ class _MobileAddCardState extends State<MobileAddCard> {
                     Text(
                       'Use camera to scan card info',
                       style: TextStyle(
-                        fontSize: 17,
+                        fontSize: 16,
                         fontWeight: FontWeight.w400
                       ),
                     )
@@ -365,6 +402,25 @@ class _MobileAddCardState extends State<MobileAddCard> {
 
         ],
       ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: RoundedLoadingButton(
+          controller: _btncontroller, 
+          onPressed: _connectCard, 
+          width: size.width * 0.95,
+          child: const Text(
+            'Connect Card',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 16,
+              fontWeight: FontWeight.w300
+            ),
+          ),
+          color: deepGreyColor,
+          successColor: Colors.green,
+        ),
+      )
+      
     );
   }
 }

@@ -7,15 +7,22 @@ import '../Colors/colors.dart';
       child: values != '' ? Container(
         height: 50,
         width: widths*0.30,
-        decoration: const BoxDecoration(
-          color: whiteColor,
-          borderRadius: BorderRadius.only(
+        decoration: BoxDecoration(
+          color: values != 'Icon' ? whiteColor : backgroundColor,
+          borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(5),
             topRight: Radius.circular(5),
             bottomLeft: Radius.circular(8),
             bottomRight: Radius.circular(8),
 
-          )
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.3),
+              blurRadius: values != 'Icon' ? 4 : 0,
+                    // offset: Offset(3,7)
+            )
+          ]
         ),
         child: Column(
           children: [
@@ -29,7 +36,12 @@ import '../Colors/colors.dart';
                   fontWeight: FontWeight.w600,
                   fontSize: 22,
                 ),
-              ): const Icon(Icons.disabled_by_default_outlined)
+              ): const Padding(
+                padding: EdgeInsets.only(
+                  top: 4
+                ),
+                child: Icon(Icons.disabled_by_default_outlined),
+              )
             ),
             Text(
               text,

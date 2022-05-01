@@ -5,6 +5,7 @@ const transparentMainColor = Color(0XFF4F77FC);
 const whiteColor = Color(0XFFFFFFFF);
 const backgroundColor = Color(0XFFF2F5F8);
 const greyColor = Color(0XFFBDC6CD);
+const deepGreyColor = Color(0XFFC0C8D6);
 const btcColor = Color(0XFFFA913D);
 const ethColor = Color(0XFF6080DD);
 const sentColorButton = Color(0XFFFFF4F9);
