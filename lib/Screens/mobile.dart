@@ -17,8 +17,7 @@ class _MobileState extends State<Mobile> {
 List<Widget> pageView = const [
   MobileHome(),
   MobileHistory(),
-  MobileAddCard(),
-  // MobileProfile()
+  MobileProfile()
 ];
 
   int currentState = 0;

@@ -1,6 +1,6 @@
 
 
-import 'package:crypto_exchange/Views/MobileViews/mobile_add_card.dart';
+import 'package:crypto_exchange/Views/MobileViews/mobile_connected_cards.dart';
 import 'package:flutter/material.dart';
 
 import '../../Colors/colors.dart';
@@ -179,7 +179,7 @@ class _MobileHomeState extends State<MobileHome> {
                         onTap: (() {
                           Navigator.push(
                             context, MaterialPageRoute(
-                              builder: (_) => const MobileAddCard())
+                              builder: (_) => const MobileConnectedCards())
                           );
                         }),
                         child: Column(
@@ -276,92 +276,96 @@ class _MobileHomeState extends State<MobileHome> {
               ),
             ),
             
-            Padding(
-              padding: const EdgeInsets.only(
-                top: 2
-              ),
-              child: ListTile(
-                contentPadding: const EdgeInsets.symmetric(
-                  vertical: 20,
-                  horizontal: 10
-                ),
-                tileColor: whiteColor,
-                leading: const CircleAvatar(
-                  radius: 26,
-                  backgroundColor: btcColor,
-                  child: Text(
-                    'BTC',
-                    style: TextStyle(
-                      color: whiteColor
+             _isWallets == true ? Column(
+               children: [
+                 Padding(
+                  padding: const EdgeInsets.only(
+                    top: 2
+                  ),
+                  child:ListTile(
+                    contentPadding: const EdgeInsets.symmetric(
+                      vertical: 20,
+                      horizontal: 10
+                    ),
+                    tileColor: whiteColor,
+                    leading: const CircleAvatar(
+                      radius: 26,
+                      backgroundColor: btcColor,
+                      child: Text(
+                        'BTC',
+                        style: TextStyle(
+                          color: whiteColor
+                        ),
+                      ),
+                    ),
+                    title: Text(
+                      btcdata
+                    ),
+                    subtitle: Text(
+                      btcsubdata
+                    ),
+                    trailing: Padding(
+                      padding: const EdgeInsets.only(
+                        top: 8
+                      ),
+                      child: Column(
+                        children: [
+                          Text(
+                            '$btcpercentage %'
+                          ),
+                          const Icon(
+                            Icons.keyboard_arrow_down_rounded,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-                title: Text(
-                  btcdata
-                ),
-                subtitle: Text(
-                  btcsubdata
-                ),
-                trailing: Padding(
+                Padding(
                   padding: const EdgeInsets.only(
-                    top: 8
+                    top: 2
                   ),
-                  child: Column(
-                    children: [
-                      Text(
-                        '$btcpercentage %'
+                  child: ListTile(
+                    contentPadding: const EdgeInsets.symmetric(
+                      vertical: 20,
+                      horizontal: 10
+                    ),
+                    tileColor: whiteColor,
+                    leading: const CircleAvatar(
+                      radius: 26,
+                      backgroundColor: ethColor,
+                      child: Text(
+                        'ETH',
+                        style: TextStyle(
+                          color: whiteColor
+                        ),
                       ),
-                      const Icon(
-                        Icons.keyboard_arrow_down_rounded,
+                    ),
+                    title: Text(
+                      ethdata
+                    ),
+                    subtitle: Text(
+                      ethsubdata
+                    ),
+                    trailing: Padding(
+                      padding: const EdgeInsets.only(
+                        top: 8
                       ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                top: 2
-              ),
-              child: ListTile(
-                contentPadding: const EdgeInsets.symmetric(
-                  vertical: 20,
-                  horizontal: 10
-                ),
-                tileColor: whiteColor,
-                leading: const CircleAvatar(
-                  radius: 26,
-                  backgroundColor: ethColor,
-                  child: Text(
-                    'ETH',
-                    style: TextStyle(
-                      color: whiteColor
+                      child: Column(
+                        children: [
+                          Text(
+                            '$ethpercentage %'
+                          ),
+                          const Icon(
+                            Icons.keyboard_arrow_down_rounded,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-                title: Text(
-                  ethdata
-                ),
-                subtitle: Text(
-                  ethsubdata
-                ),
-                trailing: Padding(
-                  padding: const EdgeInsets.only(
-                    top: 8
-                  ),
-                  child: Column(
-                    children: [
-                      Text(
-                        '$ethpercentage %'
-                      ),
-                      const Icon(
-                        Icons.keyboard_arrow_down_rounded,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            )
+               ],
+             ) : Column(),
           ],
         ),
       ),

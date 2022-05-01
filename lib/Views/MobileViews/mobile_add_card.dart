@@ -23,14 +23,10 @@ class _MobileAddCardState extends State<MobileAddCard> {
       const Duration(seconds: 3), 
       () {
         _btncontroller.success();
-        Timer(const Duration(seconds: 1), () async
+        Timer(const Duration(seconds: 1), () 
         {
-          await Navigator.push(
-            context, MaterialPageRoute(
-              builder: (_) =>
-                const MobileConnectedCards()
-            )
-          );
+          Navigator.pop(context);
+        
           _btncontroller.reset();
         });
       }
@@ -63,7 +59,7 @@ class _MobileAddCardState extends State<MobileAddCard> {
                       children: [
                         IconButton(
                           onPressed: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (_) => const Mobile()));
+                            Navigator.pop(context);
                           }, 
                           icon: const Icon(
                             Icons.arrow_back_rounded,

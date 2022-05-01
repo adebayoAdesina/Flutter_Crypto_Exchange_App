@@ -1,4 +1,6 @@
 import 'package:crypto_exchange/Colors/colors.dart';
+import 'package:crypto_exchange/Views/MobileViews/mobile_add_card.dart';
+import 'package:crypto_exchange/Widget/connected_cards_widget.dart';
 import 'package:flutter/material.dart';
 
 class MobileConnectedCards extends StatefulWidget {
@@ -39,11 +41,16 @@ class _MobileConnectedCardsState extends State<MobileConnectedCards> {
           ],
         ),
         actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Icon(
-              Icons.add,
-              color: Colors.black.withOpacity(0.6),
+          InkWell(
+            onTap: (() {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => const MobileAddCard()));
+            }),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(
+                Icons.add,
+                color: Colors.black.withOpacity(0.6),
+              ),
             ),
           ),
         ],
@@ -67,7 +74,8 @@ class _MobileConnectedCardsState extends State<MobileConnectedCards> {
                     textAlign: TextAlign.center,
                   ),
                 ),
-              )
+              ),
+              const ConnectedCardWidget()
             ],
           )
         ),
