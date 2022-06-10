@@ -1,4 +1,6 @@
-import 'dart:html';
+
+
+import 'package:crypto_exchange/Colors/colors.dart';
 
 const walletHistory = [
   {
@@ -7,6 +9,7 @@ const walletHistory = [
     'crypto' : [
       {
         'type' : 'LTC',
+        'color' : btcColor,
         'time' : '19:53',
         'deduction' : '-0.95',
         'amount' : '60',

@@ -42,7 +42,7 @@ class _MobileHomeState extends State<MobileHome> {
                       top: 70
                     ),
                     child: Text(
-                      data,
+                      '\$$data',
                       style: const TextStyle(
                         color: whiteColor,
                         fontSize: 38,
