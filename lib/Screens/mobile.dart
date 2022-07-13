@@ -3,6 +3,7 @@ import 'package:crypto_exchange/Views/MobileViews/mobile_add_card.dart';
 import 'package:crypto_exchange/Views/MobileViews/mobile_history.dart';
 import 'package:crypto_exchange/Views/MobileViews/mobile_home.dart';
 import 'package:crypto_exchange/Views/MobileViews/mobile_profile.dart';
+import 'package:crypto_exchange/Views/MobileViews/periodPage.dart';
 import 'package:flutter/material.dart';
 
 class Mobile extends StatefulWidget {
@@ -17,7 +18,8 @@ class _MobileState extends State<Mobile> {
 List<Widget> pageView = const [
   MobileHome(),
   MobileHistory(),
-  MobileProfile()
+  // MobileProfile()
+  // PeriodPage()
 ];
 
   int currentState = 0;
